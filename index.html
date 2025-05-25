@@ -1,208 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kindog - Share Your Legacy</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: #222;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      position: relative;
-    }
-    nav select {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      padding: 0.5rem;
-      font-size: 1rem;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      margin-bottom: 1rem;
-    }
-    h1, h2 {
-      color: #222;
-    }
-    button, input, textarea {
-      font-size: 1rem;
-    }
-    .cta-buttons button {
-      background: #007BFF;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .resource-box {
-      background: #e6f7ff;
-      padding: 1rem;
-      border: 1px solid #b3e0ff;
-      margin-top: 1rem;
-    }
-    .centered-form {
-      text-align: center;
-    }
-    .back-button {
-      margin-top: 2rem;
-    }
-    .photo-entry {
-      margin: 1rem 0;
-    }
-    .photo-entry img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin-bottom: 0.5rem;
+font-size: 0.9em;
+      color: #111;
     }
   </style>
-  <script>
-    function goToPage(select) {
-      const value = select.value;
-      if (value) window.location.href = value;
-    }
-
-    function addResource() {
-      const list = document.getElementById("resource-list");
-      const input = document.getElementById("resourceInput");
-      if (input.value.trim() !== "") {
-        const li = document.createElement("li");
-        li.textContent = input.value;
-        list.appendChild(li);
-        let saved = JSON.parse(localStorage.getItem("resources") || "[]");
-        saved.push(input.value);
-        localStorage.setItem("resources", JSON.stringify(saved));
-        input.value = "";
-      }
-    }
-
-    window.onload = () => {
-      const saved = JSON.parse(localStorage.getItem("resources") || "[]");
-      const list = document.getElementById("resource-list");
-      saved.forEach(text => {
-        const li = document.createElement("li");
-        li.textContent = text;
-        list.appendChild(li);
-      });
-    }
-
-    function addPhotoStory() {
-      const url = document.getElementById("photoURL").value;
-      const caption = document.getElementById("photoCaption").value;
-      const container = document.getElementById("photoStoriesContainer");
-      if (url.trim() && caption.trim()) {
-        const div = document.createElement("div");
-        div.className = "photo-entry";
-        div.innerHTML = `<img src="${url}" alt="User Photo"/><p>${caption}</p>`;
-        container.appendChild(div);
-        document.getElementById("photoURL").value = "";
-        document.getElementById("photoCaption").value = "";
-      }
-    }
-  </script>
 </head>
 <body>
-
-<header>
-  <nav>
-    <select onchange="goToPage(this)">
-      <option disabled selected>Menu</option>
-      <option value="#photo-stories">Photo Stories</option>
-      <option value="#overcoming">Hardships Overcome</option>
-      <option value="#support">Reach Out</option>
-    </select>
-  </nav>
-  <h1>Welcome to Kindog</h1>
-  <p>Preserve stories. Pass on wisdom. Protect your legacy.</p>
-</header>
-
-<section>
-  <h2>About Kindog</h2>
-  <p>Kindog is your family's digital storytelling campfire — a heartfelt space to post cherished photos, share the stories behind them, and connect through experience. We're here to help families preserve meaning and support one another.</p>
-  <div class="cta-buttons">
-    <button>Donate Now</button>
-    <button>Join Us</button>
-    <button>Help Our Cause</button>
-  </div>
-</section>
-
-<section>
-  <h2>Our Story</h2>
-  <p>I'm a disabled veteran living with strength through adversity. Chronic illness has shaped my story — but so have love, faith, and resilience. Kindog was built to share those journeys.</p>
-</section>
-
-<section id="photo-stories">
-  <h2>Photo Stories</h2>
-  <p>Each image tells a story. Share a moment with meaning.</p>
-
-  <div id="photoStoriesContainer">
-    <div class="photo-entry">
-      <img src="https://via.placeholder.com/800x500" alt="Example Story"/>
-      <p>Our first camping trip after my diagnosis — full of joy, love, and healing.</p>
+  <div class="overlay">
+    <div class="hero">
+      <div>
+        <h1>Kindog</h1>
+        <p>Page Coming Soon</p>
+      </div>
     </div>
+
+    <div class="container">
+      <section>
+        <h2>Stay Tuned</h2>
+        <p>We're building something meaningful. Please check back soon.</p>
+      </section>
+    </div>
+
+    <footer>
+      &copy; 2025 Kindog.org — Stories Worth Sharing.
+    </footer>
   </div>
-
-  <h3>Submit Your Photo Story</h3>
-  <input type="text" id="photoURL" placeholder="Image URL"><br><br>
-  <textarea id="photoCaption" rows="3" placeholder="Write your story or caption..."></textarea><br><br>
-  <button onclick="addPhotoStory()">Add Photo Story</button>
-
-  <div class="back-button"><a href="#top">⬅ Back to Top</a></div>
-</section>
-
-<section id="overcoming">
-  <h2>Hardships Overcome</h2>
-  <p>Read and share the stories that show how strength, faith, and hope prevail through the hardest times.</p>
-  <div class="back-button"><a href="#top">⬅ Back to Top</a></div>
-</section>
-
-<section id="support">
-  <h2>Reach Out</h2>
-  <p>If you’re struggling, we’re here to listen and help. Use the info below or submit a message.</p>
-
-  <div class="resource-box">
-    <h3>Veteran Crisis Line</h3>
-    <p><strong>Call or Text:</strong> 988 then Press 1</p>
-    <p><strong>Chat:</strong> <a href="https://www.veteranscrisisline.net">veteranscrisisline.net</a></p>
-  </div>
-
-  <div class="resource-box">
-    <h3>Local Resources for Disabled Veterans – Navarre, FL</h3>
-    <ul id="resource-list">
-      <li>Navarre VFW Post – Peer support and events</li>
-      <li>Santa Rosa Veterans Services Office – Claims assistance</li>
-    </ul>
-    <input type="text" id="resourceInput" placeholder="Add a local resource...">
-    <button onclick="addResource()">Add Resource</button>
-  </div>
-
-  <div class="back-button"><a href="#top">⬅ Back to Top</a></div>
-</section>
-
-<section class="centered-form">
-  <h2>Stay Connected</h2>
-  <input type="email" placeholder="Your Email">
-  <button>Subscribe</button>
-</section>
-
-<footer>
-  <p>&copy; 2025 Kindog | Navarre, FL | All rights reserved.</p>
-  <p>Legacy. Loyalty. Wisdom.</p>
-</footer>
-
 </body>
 </html>
+
+
+
+
