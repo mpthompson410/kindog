@@ -15,7 +15,7 @@
       color: #333;
     }
     .hero {
-      background: url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1559060018-0fc8d4e1dbf1?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
       height: 80vh;
       color: white;
       display: flex;
@@ -36,11 +36,12 @@
       margin: 40px auto;
       padding: 0 20px;
     }
-    form {
+    section {
       background: white;
-      padding: 20px;
+      padding: 30px;
+      margin-bottom: 40px;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
     form label {
       display: block;
@@ -67,6 +68,13 @@
     form button:hover {
       background: #003a88;
     }
+    .donate {
+      text-align: center;
+    }
+    .donate button {
+      background-color: #28a745;
+      font-size: 1.2em;
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -85,26 +93,58 @@
   </div>
 
   <div class="container">
-    <h2>Submit Your Story</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST" enctype="multipart/form-data">
-      <label for="name">Your Name</label>
-      <input type="text" name="name" id="name" required />
+    <section>
+      <h2>Our Mission</h2>
+      <p>
+        Kindog was born from both necessity and hope — a platform to preserve stories, legacies, and human connections.
+        Created by a 100% disabled U.S. Air Force veteran, this space honors our shared resilience.
+        I live with ankylosing spondylitis, fibromyalgia, jaw paralysis, nodules on my lungs, and profound daily pain — yet my mission remains clear:
+        To build something meaningful for my two young children and others like us, through storytelling, legacy, and unity.
+      </p>
+    </section>
 
-      <label for="email">Your Email</label>
-      <input type="email" name="email" id="email" required />
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I proudly served in the U.S. Air Force. After my service, I faced the unrelenting onset of disabling illnesses.
+        Ankylosing spondylitis fused my spine, fibromyalgia attacks my nerves daily, and nodules in my lungs threaten each breath.
+        My jaw remains partially paralyzed. Despite it all, I press forward — because people need to hear our stories.
+      </p>
+      <p>
+        Kindog is my stand: to make sure my voice and yours are not lost. That we are seen. That we make a mark.
+      </p>
+    </section>
 
-      <label for="story">Your Campfire Story</label>
-      <textarea name="story" id="story" rows="6" required></textarea>
+    <section class="donate">
+      <h2>Support the Mission</h2>
+      <p>
+        Donations help keep Kindog alive — providing resources, technology, and time to continue building and maintaining a space where real stories matter.
+      </p>
+      <button onclick="window.location.href='https://www.buymeacoffee.com/kindog'">Donate Now</button>
+    </section>
 
-      <label for="image">Upload an Image (optional)</label>
-      <input type="file" name="image" accept="image/*" />
+    <section>
+      <h2>Submit Your Campfire Story</h2>
+      <form action="https://formspree.io/f/your-form-id" method="POST" enctype="multipart/form-data">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" required />
 
-      <button type="submit">Submit Story</button>
-    </form>
+        <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" required />
+
+        <label for="story">Your Campfire Story</label>
+        <textarea name="story" id="story" rows="6" required></textarea>
+
+        <label for="image">Upload an Image (optional)</label>
+        <input type="file" name="image" accept="image/*" />
+
+        <button type="submit">Submit Story</button>
+      </form>
+    </section>
   </div>
 
   <footer>
-    &copy; 2025 Kindog.org — All rights reserved.
+    &copy; 2025 Kindog.org — Stories Worth Sharing. Built with hope, honesty, and heart.
   </footer>
 </body>
 </html>
