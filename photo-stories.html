@@ -7,9 +7,9 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
       background-color: #f4f4f4;
-      color: #333;
+      margin: 0;
+      padding: 0;
     }
     header {
       background: #222;
@@ -27,32 +27,40 @@
     h1, h2 {
       color: #222;
     }
-    img {
+    .story {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .story img {
       max-width: 100%;
+      height: auto;
       border-radius: 8px;
-      margin: 1rem 0;
+      margin-top: 1rem;
     }
     .caption {
       font-style: italic;
       color: #555;
-      text-align: center;
+      margin-top: 0.5rem;
     }
-    form input, form textarea, form button {
-      display: block;
+    form {
+      margin-top: 2rem;
+    }
+    input, textarea, button {
       width: 100%;
-      margin: 0.5rem 0;
       padding: 0.75rem;
+      margin: 0.5rem 0;
       font-size: 1rem;
     }
-    form button {
+    button {
       background-color: #007BFF;
       color: white;
       border: none;
       cursor: pointer;
+      border-radius: 5px;
     }
     .back-button {
       display: inline-block;
-      margin: 1rem 0;
+      margin-bottom: 1rem;
       background: #444;
       color: #fff;
       padding: 0.5rem 1rem;
@@ -64,28 +72,62 @@
 <body>
   <header>
     <h1>Photo Stories</h1>
-    <p>Real photos. Real stories. Shared from the heart.</p>
+    <p>Upload your moment. Inspire others.</p>
   </header>
 
   <div class="container">
     <a href="index.html" class="back-button">← Back to Home</a>
 
-    <section>
-      <h2>Example Story</h2>
-      <img src="https://via.placeholder.com/800x400" alt="Family Memory">
-      <p class="caption">"This photo reminds me of a time we felt truly connected as a family."</p>
+    <section id="story-list">
+      <!-- Stories will be inserted here -->
     </section>
 
     <section>
       <h2>Share Your Photo Story</h2>
-      <form name="photo-form" method="POST" data-netlify="true" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <textarea name="caption" rows="3" placeholder="Write a caption for your photo..." required></textarea>
-        <input type="file" name="photo" accept="image/*" required />
-        <textarea name="message" rows="4" placeholder="Optional: Tell us more about this moment..."></textarea>
-        <button type="submit">Share My Story</button>
+      <form id="photoForm">
+        <input type="text" id="name" placeholder="Your Name (optional)">
+        <textarea id="caption" rows="3" placeholder="Caption (required)" required></textarea>
+        <input type="file" id="image" accept="image/*" required>
+        <button type="submit">Add</button>
       </form>
     </section>
   </div>
+
+  <script>
+    const form = document.getElementById('photoForm');
+    const storyList = document.getElementById('story-list');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const fileInput = document.getElementById('image');
+      const caption = document.getElementById('caption').value;
+      const name = document.getElementById('name').value;
+
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const storyDiv = document.createElement('div');
+          storyDiv.classList.add('story');
+
+          const img = document.createElement('img');
+          img.src = event.target.result;
+
+          const captionText = document.createElement('p');
+          captionText.className = 'caption';
+          captionText.textContent = `"${caption}"` + (name ? ` — ${name}` : '');
+
+          storyDiv.appendChild(img);
+          storyDiv.appendChild(captionText);
+
+          storyList.appendChild(storyDiv);
+
+          // Clear form
+          form.reset();
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      }
+    });
+  </script>
 </body>
 </html>
