@@ -1,110 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KinDog - Share Your Legacy</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-      position: relative;
-    }
-    nav {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-    }
-    select {
-      padding: 0.5rem;
-      font-size: 1rem;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      margin-bottom: 1rem;
-    }
-    h1, h2 {
-      color: #222;
-    }
-    .image-gallery img {
-      width: 100%;
-      height: auto;
-      margin: 0.5rem 0;
-    }
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+    header, footer { background: #222; color: #fff; padding: 1rem; text-align: center; }
+    nav select { font-size: 1rem; padding: 0.5rem; margin-top: 0.5rem; }
+    section { padding: 2rem; max-width: 800px; margin: auto; background: white; margin-bottom: 1rem; }
+    h1, h2 { color: #222; }
     .cta-buttons button {
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 5px;
+      background-color: #007BFF; color: white; border: none;
+      padding: 0.75rem 1.5rem; margin: 0.5rem;
+      font-size: 1rem; border-radius: 5px; cursor: pointer;
     }
-    .resource-box {
-      background-color: #e6f7ff;
-      padding: 1rem;
-      border: 1px solid #b3e0ff;
-      margin-top: 1rem;
-    }
-    .centered-form {
-      text-align: center;
-    }
-    .centered-form input[type="email"] {
-      padding: 0.5rem;
-      font-size: 1rem;
-      width: 60%;
-      max-width: 300px;
-      margin: 0.5rem auto;
-      display: block;
-    }
-    .centered-form button {
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 4px;
+    .resource-box { background-color: #e6f7ff; padding: 1rem; border: 1px solid #b3e0ff; margin-top: 1rem; }
+    form input, form textarea { width: 100%; padding: 0.5rem; margin: 0.5rem 0; }
+    form button {
+      background-color: #28a745; color: white; border: none;
+      padding: 0.75rem 1.5rem; font-size: 1rem;
+      border-radius: 5px; cursor: pointer;
     }
   </style>
 </head>
 <body>
   <header>
+    <h1>Welcome to KinDog</h1>
+    <p>Preserve memories. Share values. Build your legacy.</p>
     <nav>
       <select onchange="location = this.value;">
         <option disabled selected>Menu</option>
-        <option value="#photo-stories">Photo Stories</option>
-        <option value="#overcoming">Hardships Overcome</option>
-        <option value="#support">Reach Out</option>
+        <option value="photo-stories.html">Photo Stories</option>
+        <option value="hardships-overcome.html">Hardships Overcome</option>
+        <option value="reach-out.html">Reach Out</option>
       </select>
     </nav>
-    <h1>Welcome to KinDog</h1>
-    <p>Preserve memories. Share values. Build your legacy.</p>
   </header>
 
   <section>
     <h2>About KinDog</h2>
-    <p>KinDog is your family's digital storytelling campfire — a heartfelt space to post cherished photos, share the stories behind them, and connect through the strength of experience. We're here to help families and individuals preserve meaning, remember moments, and support one another in healing and growth. Your voice matters here.</p>
+    <p>KinDog is your family's digital storytelling campfire — a heartfelt space to post cherished photos, share the stories behind them, and connect through the strength of experience.</p>
     <div class="cta-buttons">
       <button>Donate Now</button>
       <button>Join Us</button>
@@ -113,70 +49,32 @@
   </section>
 
   <section>
-    <h2>Our Story</h2>
-    <p>I'm a disabled veteran living with invisible wounds and visible strength. From chronic pain to life-altering health conditions, my journey is one of resilience, faith, and purpose. KinDog was created so others like me could share their stories, inspire others, and leave a lasting mark of love and wisdom.</p>
-  </section>
-
-  <section id="photo-stories" class="image-gallery">
-    <h2>Photo Stories</h2>
-    <p>Each image tells a story. These shared glimpses of life help us remember and grow together.</p>
-    <img src="https://via.placeholder.com/800x500" alt="Story Photo 1">
-    <img src="https://via.placeholder.com/800x500" alt="Story Photo 2">
-    <img src="https://via.placeholder.com/800x500" alt="Story Photo 3">
-  </section>
-
-  <section id="overcoming">
-    <h2>Hardships Overcome</h2>
-    <p>Discover powerful personal journeys that show how perseverance and hope can conquer even the darkest moments.</p>
-  </section>
-
-  <section id="support">
-    <h2>Reach Out</h2>
-    <p>Need someone to talk to? You're not alone. Use the form below or reach out through the resources listed — we're here to listen and support with care.</p>
+    <h2>Veteran Crisis Resources</h2>
     <div class="resource-box">
       <h3>Veteran Crisis Line</h3>
       <p><strong>Call or Text:</strong> 988 then Press 1</p>
-      <p><strong>Chat:</strong> <a href="https://www.veteranscrisisline.net">veteranscrisisline.net</a></p>
+      <p><strong>Chat:</strong> <a href="https://www.veteranscrisisline.net" target="_blank">veteranscrisisline.net</a></p>
     </div>
+
     <div class="resource-box">
-      <h3>Local Resources for Disabled Veterans – Navarre, FL</h3>
+      <h3>Local Resources – Navarre, FL</h3>
       <ul>
-        <li>Navarre VFW Post – Peer support and events</li>
-        <li>Santa Rosa Veterans Services Office – Disability claims assistance</li>
-        <li>Volunteer Organizations – Let us know of more to add</li>
+        <li>VFW Post – Peer support and events</li>
+        <li>Santa Rosa Veterans Services – Claims & benefits</li>
+        <li>Volunteer Groups – Local community help</li>
       </ul>
+      <h4>Know of more resources?</h4>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="resource" placeholder="Describe the local resource" rows="4" required></textarea>
+        <button type="submit">Submit Resource</button>
+      </form>
     </div>
-  </section>
-
-  <section>
-    <h2>Support Our Journey</h2>
-    <p>Your donations allow us to keep this space active and free for those who need it. Thank you for helping us support storytelling, healing, and community building.</p>
-    <button>Donate Now to Make a Difference</button>
-  </section>
-
-  <section>
-    <h2>Get in Touch</h2>
-    <p>Want to contribute, connect, or share your story? Fill out the form below — we'd love to hear from you.</p>
-    <form>
-      <label>Name<br><input type="text" name="name" required></label><br><br>
-      <label>Email<br><input type="email" name="email" required></label><br><br>
-      <label>How did you hear about us?<br><input type="text" name="referral"></label><br><br>
-      <label>Message<br><textarea name="message" rows="5"></textarea></label><br><br>
-      <label>Attach a File (optional)<br><input type="file" name="attachment"></label><br><br>
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
-  <section class="centered-form">
-    <h2>Stay Connected</h2>
-    <p>Sign up to receive heartfelt stories, updates, and opportunities to support KinDog’s mission.</p>
-    <input type="email" placeholder="Your Email">
-    <button>Subscribe</button>
   </section>
 
   <footer>
-    <p>&copy; 2025 KinDog | Navarre, FL, USA | All rights reserved.</p>
-    <p>Legacy. Loyalty. Wisdom.</p>
+    <p>&copy; 2025 KinDog | Navarre, FL</p>
   </footer>
 </body>
 </html>
