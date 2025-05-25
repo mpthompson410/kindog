@@ -3,18 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hardships Overcome - KinDog</title>
+  <title>Hardships Overcome – KinDog</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
-    header, footer { background: #222; color: #fff; text-align: center; padding: 1rem; }
-    section { padding: 2rem; background: white; max-width: 800px; margin: auto; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    section {
+      background: white;
+      padding: 2rem;
+      margin: 1rem auto;
+      max-width: 800px;
+    }
+
+    button,
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .centered-form input,
+    .centered-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
   </style>
 </head>
 <body>
-  <header><h1>Hardships Overcome</h1></header>
+  <header>
+    <nav>
+      <select onchange="if(this.value) window.location.href=this.value;">
+        <option value="">Menu</option>
+        <option value="index.html">Home</option>
+        <option value="photo-stories.html">Photo Stories</option>
+        <option value="hardships.html" selected>Hardships Overcome</option>
+        <option value="reach-out.html">Reach Out</option>
+      </select>
+    </nav>
+    <h1>Hardships Overcome</h1>
+    <p>Real stories of strength, survival, and hope.</p>
+  </header>
+
   <section>
-    <p>Powerful personal stories of overcoming obstacles, pain, and adversity. You're not alone.</p>
+    <h2>Share Your Journey</h2>
+    <form class="centered-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+      <label>Your Name:<br><input type="text" name="name" required></label><br><br>
+      <label>Your Story:<br><textarea name="story" rows="6" required></textarea></label><br><br>
+      <input type="submit" value="Submit Your Story">
+    </form>
   </section>
-  <footer><p>&copy; 2025 KinDog</p></footer>
+
+  <section>
+    <button onclick="window.location.href='index.html'">← Back to Home</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kindog | Navarre, FL | Legacy. Loyalty. Wisdom.</p>
+  </footer>
 </body>
 </html>
