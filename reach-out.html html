@@ -3,29 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reach Out - KinDog</title>
+  <title>Reach Out – KinDog</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
-    header, footer { background: #222; color: #fff; text-align: center; padding: 1rem; }
-    section { padding: 2rem; background: white; max-width: 800px; margin: auto; }
-    form input, form textarea { width: 100%; padding: 0.5rem; margin: 0.5rem 0; }
-    form button {
-      background-color: #28a745; color: white; padding: 0.75rem 1.5rem;
-      border: none; font-size: 1rem; border-radius: 5px; cursor: pointer;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    section {
+      background: white;
+      padding: 2rem;
+      margin: 1rem auto;
+      max-width: 800px;
+    }
+
+    h2 {
+      color: #222;
+    }
+
+    button,
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .resource-box {
+      background-color: #e6f7ff;
+      padding: 1rem;
+      border: 1px solid #b3e0ff;
+      margin: 1rem 0;
+    }
+
+    .centered-form input,
+    .centered-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    a {
+      color: #007BFF;
     }
   </style>
 </head>
 <body>
-  <header><h1>Reach Out</h1></header>
+  <header>
+    <nav>
+      <select onchange="if(this.value) window.location.href=this.value;">
+        <option value="">Menu</option>
+        <option value="index.html">Home</option>
+        <option value="photo-stories.html">Photo Stories</option>
+        <option value="hardships.html">Hardships Overcome</option>
+        <option value="reach-out.html" selected>Reach Out</option>
+      </select>
+    </nav>
+    <h1>Reach Out</h1>
+    <p>Because you're not alone — we're here to listen.</p>
+  </header>
+
   <section>
-    <p>Have something to share or need help? Use the form below.</p>
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
+    <h2>Veteran Crisis Line</h2>
+    <div class="resource-box">
+      <p><strong>Call or Text:</strong> <span style="font-size: 1.2em;">988</span> then press <strong>1</strong></p>
+      <p><strong>Chat:</strong> <a href="https://www.veteranscrisisline.net" target="_blank">veteranscrisisline.net</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Local Resources for Disabled Veterans – Navarre, FL</h2>
+    <ul>
+      <li><strong>Navarre VFW Post</strong> – Peer support and community events</li>
+      <li><strong>Santa Rosa Veterans Services Office</strong> – Assistance with disability claims and benefits</li>
+      <li><strong>Volunteer Organizations</strong> – Local help and outreach groups</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Share a Resource</h2>
+    <p>Know of a support group, event, or service for veterans? Share it here and we’ll add it to this list.</p>
+    <form class="centered-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+      <label>Resource Name:<br><input type="text" name="resource" required></label><br><br>
+      <label>Description or Contact Info:<br><textarea name="description" rows="4" required></textarea></label><br><br>
+      <input type="submit" value="Submit Resource">
     </form>
   </section>
-  <footer><p>&copy; 2025 KinDog</p></footer>
+
+  <section>
+    <button onclick="window.location.href='index.html'">← Back to Home</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kindog | Navarre, FL | Legacy. Loyalty. Wisdom.</p>
+  </footer>
 </body>
 </html>
