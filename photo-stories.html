@@ -3,21 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Photo Stories - KinDog</title>
+  <title>Photo Stories – KinDog</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
-    header, footer { background: #222; color: #fff; padding: 1rem; text-align: center; }
-    section { padding: 2rem; max-width: 800px; margin: auto; background: white; }
-    img { width: 100%; margin-top: 1rem; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    section {
+      background: white;
+      padding: 2rem;
+      margin: 1rem auto;
+      max-width: 800px;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      height: auto;
+      margin: 1rem 0;
+    }
+
+    button,
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .centered-form input,
+    .centered-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
   </style>
 </head>
 <body>
-  <header><h1>Photo Stories</h1></header>
-  <section>
-    <p>Each photo holds a powerful memory. Submit yours to share your family’s journey.</p>
-    <img src="https://via.placeholder.com/800x400" alt="Example Story 1" />
-    <img src="https://via.placeholder.com/800x400" alt="Example Story 2" />
-  </section>
-  <footer><p>&copy; 2025 KinDog</p></footer>
-</body>
-</html>
+  <header>
+    <nav>
+      <select onchange="if(this.value) window.location.href=this.value;">
+        <option value="">Menu</option>
+        <option value="index.html">Home</option>
+        <option value="photo-stories.html" selected>Photo Stories</option>
+        <option value="hardships.html">Hardships Overcome</option>
+        <option value="reach-out.html">Reach Out</option>
+      </select>
+    </nav>
+    <h1>Photo Stories</h1>
+    <p>Every photo tells a story. Share yours.</p>
+  </header>
+
+  <section class="image-gallery">
+    <img src="https://via.placeholder.com/800x500" alt="Story Photo 1">
+    <img src="https://via.placeholder.com/800x
