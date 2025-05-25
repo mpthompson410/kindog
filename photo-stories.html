@@ -3,118 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Photo Stories – KinDog</title>
+  <title>Photo Stories - Kindog</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      margin: 0;
       background-color: #f4f4f4;
       color: #333;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
     }
-
     header {
       background: #222;
-      color: white;
+      color: #fff;
       padding: 1rem;
-      position: relative;
+      text-align: center;
     }
-
-    nav {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-    }
-
-    select {
-      padding: 0.5rem;
-      font-size: 1rem;
-    }
-
-    section {
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
       background: white;
       padding: 2rem;
-      margin: 1rem auto;
-      max-width: 800px;
-    }
-
-    h2 {
-      color: #222;
-    }
-
-    .photo-block {
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .photo-block img {
-      max-width: 100%;
-      height: auto;
       border-radius: 8px;
     }
-
-    .photo-caption {
+    h1, h2 {
+      color: #222;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .caption {
       font-style: italic;
       color: #555;
-      margin-top: 0.5rem;
+      text-align: center;
     }
-
-    button {
-      background-color: #007BFF;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      margin-top: 1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    form input, form textarea, form button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
       font-size: 1rem;
     }
-
-    footer {
-      background: #222;
+    form button {
+      background-color: #007BFF;
       color: white;
-      text-align: center;
-      padding: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+    .back-button {
+      display: inline-block;
+      margin: 1rem 0;
+      background: #444;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <select onchange="if(this.value) window.location.href=this.value;">
-        <option value="">Menu</option>
-        <option value="index.html">Home</option>
-        <option value="photo-stories.html" selected>Photo Stories</option>
-        <option value="hardships.html">Hardships Overcome</option>
-        <option value="reach-out.html">Reach Out</option>
-      </select>
-    </nav>
     <h1>Photo Stories</h1>
-    <p>Each photo holds a memory. Each story, a legacy.</p>
+    <p>Real photos. Real stories. Shared from the heart.</p>
   </header>
 
-  <section>
-    <h2>Shared Stories</h2>
+  <div class="container">
+    <a href="index.html" class="back-button">← Back to Home</a>
 
-    <div class="photo-block">
-      <img src="https://via.placeholder.com/800x500?text=Grandpa+and+Grandson" alt="Grandpa and grandson by the lake">
-      <p class="photo-caption">"My grandfather taught me how to fish at this lake. Every year, we returned to reconnect and reflect — even when words were few."</p>
-    </div>
+    <section>
+      <h2>Example Story</h2>
+      <img src="https://via.placeholder.com/800x400" alt="Family Memory">
+      <p class="caption">"This photo reminds me of a time we felt truly connected as a family."</p>
+    </section>
 
-    <!-- Duplicate this block for more stories -->
-    <!--
-    <div class="photo-block">
-      <img src="YOUR_IMAGE_URL_HERE" alt="Describe the image">
-      <p class="photo-caption">"Your photo caption or story here."</p>
-    </div>
-    -->
-
-    <button onclick="window.location.href='index.html'">← Back to Home</button>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 KinDog | Navarre, FL | Legacy. Loyalty. Wisdom.</p>
-  </footer>
+    <section>
+      <h2>Share Your Photo Story</h2>
+      <form name="photo-form" method="POST" data-netlify="true" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <textarea name="caption" rows="3" placeholder="Write a caption for your photo..." required></textarea>
+        <input type="file" name="photo" accept="image/*" required />
+        <textarea name="message" rows="4" placeholder="Optional: Tell us more about this moment..."></textarea>
+        <button type="submit">Share My Story</button>
+      </form>
+    </section>
+  </div>
 </body>
 </html>
