@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hardships Overcome - Kindog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    .caption {
+      font-style: italic;
+      color: #555;
+      text-align: center;
+    }
+    form input, form textarea, form button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+    form button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .back-button {
+      display: inline-block;
+      margin: 1rem 0;
+      background: #444;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hardships Overcome</h1>
+    <p>Real stories of resilience and hope</p>
+  </header>
+
+  <div class="container">
+    <a href="index.html" class="back-button">← Back to Home</a>
+
+    <section>
+      <h2>Example Story</h2>
+      <img src="https://via.placeholder.com/800x400" alt="Overcoming challenge">
+      <p class="caption">"After years of chronic pain, I found new strength in sharing my journey with others."</p>
+    </section>
+
+    <section>
+      <h2>Share Your Story</h2>
+      <form name="hardship-form" method="POST" data-netlify="true">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="text" name="title" placeholder="Title of Your Story" required />
+        <textarea name="story" rows="6" placeholder="Tell us how you overcame a hardship..." required></textarea>
+        <input type="url" name="image" placeholder="Optional Image URL (e.g., https://...)" />
+        <button type="submit">Submit Your Story</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>
