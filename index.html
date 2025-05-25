@@ -5,37 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KinDog - Share Your Legacy</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-    header, footer { background: #222; color: #fff; padding: 1rem; text-align: center; }
-    nav select { font-size: 1rem; padding: 0.5rem; margin-top: 0.5rem; }
-    section { padding: 2rem; max-width: 800px; margin: auto; background: white; margin-bottom: 1rem; }
-    h1, h2 { color: #222; }
-    .cta-buttons button {
-      background-color: #007BFF; color: white; border: none;
-      padding: 0.75rem 1.5rem; margin: 0.5rem;
-      font-size: 1rem; border-radius: 5px; cursor: pointer;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
     }
-    .resource-box { background-color: #e6f7ff; padding: 1rem; border: 1px solid #b3e0ff; margin-top: 1rem; }
-    form input, form textarea { width: 100%; padding: 0.5rem; margin: 0.5rem 0; }
-    form button {
-      background-color: #28a745; color: white; border: none;
-      padding: 0.75rem 1.5rem; font-size: 1rem;
-      border-radius: 5px; cursor: pointer;
+
+    header {
+      background: #222;
+      color: white;
+      padding: 1rem;
+      position: relative;
+    }
+
+    nav {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    section {
+      background: white;
+      padding: 2rem;
+      margin: 1rem auto;
+      max-width: 800px;
+    }
+
+    .cta-buttons button,
+    button,
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .resource-box {
+      background: #e6f7ff;
+      border: 1px solid #b3e0ff;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .centered-form input,
+    .centered-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to KinDog</h1>
-    <p>Preserve memories. Share values. Build your legacy.</p>
     <nav>
-      <select onchange="location = this.value;">
-        <option disabled selected>Menu</option>
+      <select onchange="if(this.value) window.location.href=this.value;">
+        <option value="">Menu</option>
         <option value="photo-stories.html">Photo Stories</option>
-        <option value="hardships-overcome.html">Hardships Overcome</option>
+        <option value="hardships.html">Hardships Overcome</option>
         <option value="reach-out.html">Reach Out</option>
       </select>
     </nav>
+    <h1>Welcome to KinDog</h1>
+    <p>Preserve memories. Share values. Build your legacy.</p>
   </header>
 
   <section>
@@ -49,32 +100,42 @@
   </section>
 
   <section>
-    <h2>Veteran Crisis Resources</h2>
+    <h2>Our Story</h2>
+    <p>I'm a disabled veteran living with invisible wounds and visible strength. KinDog was created to help others like me share stories, heal, and inspire generations to come.</p>
+  </section>
+
+  <section>
+    <h2>Community Resource Submission</h2>
+    <p>Know a local resource for disabled veterans in Navarre, FL? Add it below — no approval needed.</p>
+    <form class="centered-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+      <label>Resource Name:<br><input type="text" name="resource-name" required></label><br><br>
+      <label>Description:<br><textarea name="description" rows="4" required></textarea></label><br><br>
+      <label>Link (optional):<br><input type="url" name="link"></label><br><br>
+      <input type="submit" value="Submit Resource">
+    </form>
+  </section>
+
+  <section>
+    <h2>Local Resources for Disabled Veterans – Navarre, FL</h2>
     <div class="resource-box">
-      <h3>Veteran Crisis Line</h3>
+      <ul>
+        <li><strong>Navarre VFW Post</strong> – Peer support and events</li>
+        <li><strong>Santa Rosa Veterans Services Office</strong> – Claims assistance</li>
+        <li><strong>Volunteer Organizations</strong> – Contribute yours above</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Veteran Crisis Support</h2>
+    <div class="resource-box">
       <p><strong>Call or Text:</strong> 988 then Press 1</p>
       <p><strong>Chat:</strong> <a href="https://www.veteranscrisisline.net" target="_blank">veteranscrisisline.net</a></p>
-    </div>
-
-    <div class="resource-box">
-      <h3>Local Resources – Navarre, FL</h3>
-      <ul>
-        <li>VFW Post – Peer support and events</li>
-        <li>Santa Rosa Veterans Services – Claims & benefits</li>
-        <li>Volunteer Groups – Local community help</li>
-      </ul>
-      <h4>Know of more resources?</h4>
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="resource" placeholder="Describe the local resource" rows="4" required></textarea>
-        <button type="submit">Submit Resource</button>
-      </form>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 KinDog | Navarre, FL</p>
+    <p>&copy; 2025 KinDog | Navarre, FL | Legacy. Loyalty. Wisdom.</p>
   </footer>
 </body>
 </html>
