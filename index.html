@@ -1,145 +1,172 @@
-<nav class="navbar">
-  <a class="brand" href="index.html"><i class="fas fa-fire"></i>KINDOG</a>
-  <div class="nav-links">
-    <a href="index.html">Stories</a>
-    <a href="share.html">Share&nbsp;Story</a>
-    <a href="account.html">Get&nbsp;Account</a>
-    <a href="donate.html">Donate</a>
-  </div>
-  <button class="btn"><i class="fas fa-user"></i> Anonymous</button>
-</nav>
-
-kindog/
-├─ index.html          (Stories feed)
-├─ donate.html         (Keep the Campfire Burning)
-├─ account.html        (Get Account / Premium Storyteller)
-├─ share.html          (Submit a story – optional)
-├─ css/
-│   └─ style.css
-└─ js/
-    └─ main.js         (tiny helper, optional)
-/* ----------  GLOBAL THEME  ---------- */
-:root{
-  --primary:#ff6a00;
-  --primary-light:#ffb37a;
-  --bg:#fff8f4;
-  --surface:#ffffff;
-  --surface-alt:#f5f7fa;
-  --text:#1f1f1f;
-  --text-light:#606060;
-  --radius:12px;
-  --shadow:0 4px 16px rgba(0,0,0,.06);
-  font-size:16px;
-  font-family: "Inter", system-ui, sans-serif;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
-
-/* ----------  NAVBAR  ---------- */
-.navbar{
-  position:sticky;top:0;z-index:10;
-  background:#fff;
-  box-shadow:var(--shadow);
-  display:flex;align-items:center;gap:32px;
-  padding:0 24px;height:64px;
-}
-.brand{display:flex;align-items:center;font-weight:700;font-size:1.25rem;color:var(--primary);}
-.brand i{margin-right:6px}
-.nav-links{display:flex;gap:20px;margin-left:auto}
-.nav-links a{
-  text-decoration:none;
-  color:var(--text);
-  font-weight:500;
-  position:relative;
-  padding:4px 0;
-}
-.nav-links a.active,
-.nav-links a:hover{color:var(--primary);}
-.nav-links a.active::after,
-.nav-links a:hover::after{
-  content:"";
-  position:absolute;left:0;bottom:-4px;width:100%;height:2px;
-  background:var(--primary);border-radius:1px;
-}
-.btn{
-  display:flex;align-items:center;gap:6px;
-  background:var(--primary);color:#fff;
-  border:none;border-radius:999px;
-  padding:6px 16px;font-weight:600;
-  cursor:pointer;font-size:.9rem;
-}
-
-/* ----------  COMMON SECTIONS  ---------- */
-section.wrapper{padding:56px 20px;max-width:1080px;margin:auto}
-h1{font-size:2rem;margin-bottom:12px;color:var(--primary);}
-h2{font-size:1.3rem;margin:24px 0 12px 0;}
-p.lead{max-width:720px;color:var(--text-light);margin-bottom:36px}
-.card{
-  background:var(--surface);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:24px;
-}
-.icon-circle{
-  width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;
-  border-radius:50%;background:var(--primary-light);color:var(--primary);margin-right:12px;
-}
-
-/* ----------  STORIES GRID  ---------- */
-.grid{display:grid;gap:24px}
-@media(min-width:680px){.grid{grid-template-columns:repeat(2,1fr)}}
-.story-card h3{font-size:1.05rem;margin:8px 0}
-.story-card p{color:var(--text-light);font-size:.9rem;margin:8px 0 16px}
-.badge{display:inline-block;background:var(--surface-alt);padding:2px 8px;border-radius:8px;font-size:.7rem;font-weight:600;color:var(--primary)}
-.tags{display:flex;flex-wrap:wrap;gap:6px;font-size:.75rem;margin-top:8px}
-.tags span{background:var(--surface-alt);padding:2px 6px;border-radius:6px}
-/* ----------  DONATION TIERS  ---------- */
-.tier-grid{display:grid;gap:16px;margin-top:20px}
-@media(min-width:680px){.tier-grid{grid-template-columns:repeat(2,1fr)}}
-.tier{background:var(--surface-alt);padding:32px 16px;border-radius:var(--radius);text-align:center;font-weight:700;font-size:1.4rem}
-.tier small{display:block;font-size:.8rem;font-weight:400;margin-top:6px}
-
-/* ----------  SIMPLE FORMS  ---------- */
-input,select,textarea{
-  width:100%;padding:10px 12px;font-size:1rem;border:1px solid #ddd;
-  border-radius:var(--radius);margin-top:8px;
-}
-label{font-weight:600;font-size:.9rem}
-form .btn{margin-top:16px}
-// Highlight current nav link
-document.querySelectorAll('.nav-links a').forEach(a=>{
-  if(a.href===location.href){a.classList.add('active')}
-});
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>KINDOG – Stories</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/a2b2c3d4.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --primary: #ff6a00;
+      --primary-light: #ffb37a;
+      --bg: #fff8f4;
+      --surface: #ffffff;
+      --surface-alt: #f5f7fa;
+      --text: #1f1f1f;
+      --text-light: #606060;
+      --radius: 12px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      font-size: 16px;
+      font-family: "Inter", system-ui, sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fff;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding: 0 24px;
+      height: 64px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+    .brand i {
+      margin-right: 6px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      margin-left: auto;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+      padding: 4px 0;
+    }
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 1px;
+    }
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    section.wrapper {
+      padding: 56px 20px;
+      max-width: 1080px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+    p.lead {
+      max-width: 720px;
+      color: var(--text-light);
+      margin-bottom: 36px;
+    }
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+    @media (min-width: 680px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .story-card h3 {
+      font-size: 1.05rem;
+      margin: 8px 0;
+    }
+    .story-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin: 8px 0 16px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--surface-alt);
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.75rem;
+      margin-top: 8px;
+    }
+    .tags span {
+      background: var(--surface-alt);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
-  <!-- NAV -->
   <nav class="navbar">
-    <a class="brand" href="index.html"><i class="fas fa-fire"></i>KINDOG</a>
+    <a class="brand" href="#"><i class="fas fa-fire"></i>KINDOG</a>
     <div class="nav-links">
-      <a href="index.html">Stories</a>
-      <a href="share.html">Share&nbsp;Story</a>
-      <a href="account.html">Get&nbsp;Account</a>
-      <a href="donate.html">Donate</a>
+      <a href="#" class="active">Stories</a>
+      <a href="#">Share&nbsp;Story</a>
+      <a href="#">Get&nbsp;Account</a>
+      <a href="#">Donate</a>
     </div>
     <button class="btn"><i class="fas fa-user"></i> Anonymous</button>
   </nav>
 
-  <!-- HERO -->
   <section class="wrapper">
     <h1>Welcome to the Digital Campfire</h1>
     <p class="lead">
@@ -147,18 +174,17 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
       Whether you're overcoming challenges or celebrating victories, your voice matters here.
     </p>
 
-    <!-- Search / Filters -->
     <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px">
-      <input type="text" placeholder="Search stories by title, experience…" style="flex:2">
-      <select style="flex:1">
+      <input type="text" placeholder="Search stories…" style="flex:2;padding:10px;border-radius:8px;border:1px solid #ccc">
+      <select style="flex:1;padding:10px;border-radius:8px;border:1px solid #ccc">
         <option>Filter by category</option>
+        <option>Recovery</option>
+        <option>Chronic Illness</option>
       </select>
-      <button class="btn" style="flex:0 0 auto"><i class="fas fa-filter"></i>&nbsp;More Filters</button>
+      <button class="btn" style="flex:0 0 auto"><i class="fas fa-filter"></i>&nbsp;Filter</button>
     </div>
 
-    <!-- Stories -->
     <div class="grid">
-      <!-- Story card -->
       <article class="card story-card">
         <span class="badge">Addiction Recovery</span>
         <h3>Finding Light After Losing Everything</h3>
@@ -176,114 +202,14 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
           <span>advocacy</span><span>validation</span><span>chronic illness</span>
         </div>
       </article>
-
-      <!-- Add more cards or load dynamically later -->
     </div>
   </section>
 
-  <script src="js/main.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Get Account – KINDOG</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a2b2c3d4.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <nav class="navbar">
-    <a class="brand" href="index.html"><i class="fas fa-fire"></i>KINDOG</a>
-    <div class="nav-links">
-      <a href="index.html">Stories</a>
-      <a href="share.html">Share&nbsp;Story</a>
-      <a class="active" href="account.html">Get&nbsp;Account</a>
-      <a href="donate.html">Donate</a>
-    </div>
-    <button class="btn"><i class="fas fa-user"></i> Anonymous</button>
-  </nav>
-
-  <section class="wrapper">
-    <h1>Get Your KINDOG Account</h1>
-    <p class="lead">
-      Create a permanent identity for just <strong>$1.99</strong>. Manage your stories, build your legacy, and connect with others.
-    </p>
-
-    <div class="card">
-      <h2><i class="icon-circle fas fa-crown"></i>Premium Storyteller<span style="font-size:.8rem;background:var(--primary-light);color:#fff;padding:3px 8px;border-radius:8px;margin-left:8px">One-time payment</span></h2>
-
-      <h1 style="font-size:2rem;margin:16px 0">$19.99 <span style="font-size:1rem;font-weight:400">/ lifetime</span></h1>
-      <p style="margin-bottom:20px">No subscriptions, no hidden fees. Pay once, own your stories forever.</p>
-
-      <ul style="list-style:none;padding-left:0;font-size:.95rem">
-        <li><i class="icon-circle fas fa-id-badge"></i> Permanent Identity</li>
-        <li><i class="icon-circle fas fa-edit"></i> Story Management</li>
-        <li><i class="icon-circle fas fa-chart-line"></i> Story Analytics</li>
-        <li><i class="icon-circle fas fa-star"></i> Priority Support</li>
-        <li><i class="icon-circle fas fa-check-circle"></i> Verified Author</li>
-        <li><i class="icon-circle fas fa-magic"></i> Advanced Features</li>
-      </ul>
-
-      <!-- TODO: Insert your payment button / link here -->
-      <button class="btn" style="margin-top:24px;width:100%">Upgrade Now</button>
-    </div>
-  </section>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Share Your Story – KINDOG</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a2b2c3d4.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <nav class="navbar">
-    <a class="brand" href="index.html"><i class="fas fa-fire"></i>KINDOG</a>
-    <div class="nav-links">
-      <a href="index.html">Stories</a>
-      <a class="active" href="share.html">Share&nbsp;Story</a>
-      <a href="account.html">Get&nbsp;Account</a>
-      <a href="donate.html">Donate</a>
-    </div>
-    <button class="btn"><i class="fas fa-user"></i> Anonymous</button>
-  </nav>
-
-  <section class="wrapper">
-    <h1>Share Your Story</h1>
-    <p class="lead">Fill out the form below and click Submit. Your story will appear in the campfire once approved.</p>
-
-    <form>
-      <label>Title</label>
-      <input type="text" required>
-
-      <label>Category</label>
-      <select required>
-        <option value="">Choose...</option>
-        <option>Addiction Recovery</option>
-        <option>Chronic Illness</option>
-        <option>Loss & Grief</option>
-        <option>Workplace Issues</option>
-      </select>
-
-      <label>Story</label>
-      <textarea rows="8" required placeholder="Write your experience…"></textarea>
-
-      <label>Tags (comma-separated)</label>
-      <input type="text" placeholder="hope, recovery, mental-health">
-
-      <button class="btn" type="submit">Submit Story</button>
-    </form>
-  </section>
-
-  <script src="js/main.js"></script>
+  <script>
+    // Highlight nav link (optional)
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      if (a.href === location.href) a.classList.add('active');
+    });
+  </script>
 </body>
 </html>
